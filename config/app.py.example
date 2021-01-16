@@ -1,0 +1,9 @@
+RESOLVE_IP = '127.0.0.1'
+
+BLACKLIST_HOST = [
+    'http://localhost/blacklist.txt',
+]
+
+WHITELIST_HOST = [
+    'http://localhost/whitelist.txt',
+]
