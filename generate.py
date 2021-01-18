@@ -86,7 +86,7 @@ def buildBlacklist(whitelist, resolve_ip):
                     for content in read_file.read().splitlines():
                         split_content = str(content).split()
                         for domain_or_ip in split_content:
-                            if validators.domain(domain_or_ip):
+                            if validators.domain(domain_or_ip) and '_' not in domain_or_ip:
                                 domain = domain_or_ip
                         if domain and domain not in whitelist:
                             blacklist_data.append(domain)
