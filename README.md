@@ -2,7 +2,7 @@
 
 Python script for generating blacklist file for `pihole`, `bind`, `dnsmasq`, `system hosts`.
 
-[![dns-blacklist](https://asciinema.org/a/385212.svg)](https://asciinema.org/a/385212)
+[![dns-blacklist](https://asciinema.org/a/385235.svg)](https://asciinema.org/a/385235?autoplay=1)
 
 ## Setup
 
