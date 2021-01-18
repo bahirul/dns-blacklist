@@ -1,4 +1,13 @@
 RESOLVE_IP = '127.0.0.1'
+ADD_WILDCARD_BIND = False
+
+AXFR_ZONES_BLACKLISTS = [
+    {
+        'name': 'DNS-BLACKLIST-ZONE',
+        'zone': 'ads-zone',
+        'server': '10.0.0.1'
+    }
+]
 
 BLACKLIST_HOST = [
     'http://localhost/blacklist.txt',

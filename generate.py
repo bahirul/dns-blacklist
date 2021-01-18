@@ -7,6 +7,8 @@ import time
 import shutil
 import validators
 from fqdn import FQDN
+import dns.resolver
+import dns.zone
 
 ## config and src
 sys.path.append(os.path.join(sys.path[0], 'config'))
@@ -93,6 +95,22 @@ def buildBlacklist(whitelist, resolve_ip):
                 except Exception as e:
                     raise SystemError('Failed to delete %s. Reason: %s' % (full_path_file, e))
     
+    for axfr_list in AXFR_ZONES_BLACKLISTS:
+        axfr_name = axfr_list.name
+        axfr_zone = axfr_list.zone
+        axfr_server = axfr_list.server
+
+        if validators.ipv4(axfr_server):
+            resolver = dns.resolver.Resolver(configure=False)
+            transfer_query = dns.query.xfr(axfr_server,axfr_zone)
+
+            for response_axfr in transfer_query:
+                for output_axfr in transfer_query.answer:
+                    split_output_axfr = str(output_axfr).split()
+                    if split_output_axfr[0] not in whitelist and validators.domain(split_output_axfr[0]) and '_' not in split_output_axfr[0]:
+                        blacklist_data.append(split_output_axfr[0])
+                        
+    
     for build in build_paths:
         try:
             print('WRITING file to: ' + build)
@@ -110,6 +128,8 @@ def buildBlacklist(whitelist, resolve_ip):
                             file_output.write(bind_template + blacklist_domain + '    IN    A    ' + resolve_ip + '\n')
                         else:
                             file_output.write(blacklist_domain + '    IN    A    ' + resolve_ip + '\n')
+                        if ADD_WILDCARD_BIND:
+                                file_output.write('*.' + blacklist_domain + '    IN    A    ' + resolve_ip + '\n')
                     else:
                         file_output.write(resolve_ip + '    ' + blacklist_domain + '\n')
 
