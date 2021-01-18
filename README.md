@@ -2,6 +2,8 @@
 
 Python script for generating blacklist file for `pihole`, `bind`, `system hosts`.
 
+[![dns-blacklist](https://asciinema.org/a/385212.svg)](https://asciinema.org/a/385212)
+
 ## Setup
 
 - setup python3 virtualenv 
