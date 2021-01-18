@@ -72,7 +72,7 @@ def buildBlacklist(whitelist, resolve_ip):
         os.path.join(sys.path[0],'build/pihole/') + str(time.strftime('%d-%m-%y-')) + str(int(time.time())) + '.txt',
         os.path.join(sys.path[0],'build/bind/') + str(time.strftime('%d-%m-%y-')) + str(int(time.time())) + '.txt',
     ]
-    print('BUILD blacklist file ....')
+    print('BUILD blacklist data ....')
 
     blacklist_data = []
 
