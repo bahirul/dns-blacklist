@@ -91,6 +91,7 @@ def buildBlacklist(whitelist, resolve_ip):
                             if validators.domain(domain_or_ip) and '_' not in domain_or_ip:
                                 domain = domain_or_ip
                         if domain and domain not in whitelist:
+                            print('adding ' + domain + ' to blacklist ...')
                             blacklist_data.append(domain)
                 except Exception as e:
                     raise SystemError('Failed to delete %s. Reason: %s' % (full_path_file, e))
@@ -104,9 +105,10 @@ def buildBlacklist(whitelist, resolve_ip):
             transfer_query = dns.query.xfr(axfr_server,axfr_zone)
 
             for response_axfr in transfer_query:
-                for output_axfr in transfer_query.answer:
+                for output_axfr in response_axfr.answer:
                     split_output_axfr = str(output_axfr).split()
                     if split_output_axfr[0] not in whitelist and validators.domain(split_output_axfr[0]) and '_' not in split_output_axfr[0]:
+                        print('adding ' + domain + ' to blacklist ...')
                         blacklist_data.append(split_output_axfr[0])
                         
     
