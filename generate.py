@@ -96,9 +96,8 @@ def buildBlacklist(whitelist, resolve_ip):
                     raise SystemError('Failed to delete %s. Reason: %s' % (full_path_file, e))
     
     for axfr_list in AXFR_ZONES_BLACKLISTS:
-        axfr_name = axfr_list.name
-        axfr_zone = axfr_list.zone
-        axfr_server = axfr_list.server
+        axfr_zone = axfr_list['zone']
+        axfr_server = axfr_list['server']
 
         if validators.ipv4(axfr_server):
             resolver = dns.resolver.Resolver(configure=False)
