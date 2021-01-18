@@ -17,8 +17,8 @@ Python script for generating blacklist file for `pihole`, `bind`, `system hosts`
 
 - setup `config/app.py`
     - copy `config/app.py.example` to `config/app.py`
-    - `BLACKLIST_HOST` : set of blacklist url
-    - `WHITELIST_HOST` : set of whitelist url
+    - `BLACKLIST_HOST` : set of blacklist url (format source : hosts or list domain)
+    - `WHITELIST_HOST` : set of whitelist url (format source : hosts or list domain)
     - `RESOLVE_IP`     : resolve ip of blacklisted domain (for bind and system hosts)
 
 ## Usage

@@ -64,6 +64,9 @@ def getWhitelist():
 def buildBlacklist(whitelist, resolve_ip):
     blacklist_tmp_path = os.path.join(sys.path[0],'tmp/blacklist/')
     blacklist_listdir = os.listdir(blacklist_tmp_path)
+
+    bind_template = open(os.path.join(sys.path[0],'template/bind.rpz.local'),'r').read()
+
     build_paths = [
         os.path.join(sys.path[0],'build/hosts/') + str(time.strftime('%d-%m-%y-')) + str(int(time.time())) + '.txt',
         os.path.join(sys.path[0],'build/pihole/') + str(time.strftime('%d-%m-%y-')) + str(int(time.time())) + '.txt',
@@ -71,8 +74,7 @@ def buildBlacklist(whitelist, resolve_ip):
     ]
     print('BUILD blacklist file ....')
 
-    for buildPrint in build_paths:
-        print('WRITING file to: ' + buildPrint)
+    blacklist_data = []
 
     for blacklist_file in blacklist_listdir:
         full_path_file = os.path.join(sys.path[0],'tmp/blacklist/') + blacklist_file
@@ -87,25 +89,32 @@ def buildBlacklist(whitelist, resolve_ip):
                             if validators.domain(domain_or_ip):
                                 domain = domain_or_ip
                         if domain and domain not in whitelist:
-                            for build in build_paths:
-                                with open(build, 'w') as buildOutput:
-                                    bindTemplate = False
-
-                                    if 'pihole' in build:
-                                        buildOutput.write(domain + '\n')
-                                    elif 'bind' in build:
-                                        bind_template = str(open(os.path.join(sys.path[0],'template/bind.rpz.local'), 'r').read())
-                                        
-                                        if not bindTemplate:
-                                            buildOutput.write(bind_template  + domain + '    A    ' + resolve_ip + '\n')
-                                        else:
-                                            buildOutput.write(domain + '    A    ' + resolve_ip + '\n')
-                                        
-                                        bindTemplate = True
-                                    else:
-                                        buildOutput.write(resolve_ip + ' ' + domain + '\n')
+                            blacklist_data.append(domain)
                 except Exception as e:
                     raise SystemError('Failed to delete %s. Reason: %s' % (full_path_file, e))
+    
+    for build in build_paths:
+        try:
+            print('WRITING file to: ' + build)
+            
+            with open(build, 'a') as file_output:
+
+                bindWrite = False
+
+                for blacklist_domain in set(blacklist_data):
+                    if 'pihole' in build:
+                        file_output.write(blacklist_domain + '\n')
+                    elif 'bind' in build:
+                        if not bindWrite:
+                            bindWrite = True
+                            file_output.write(bind_template + resolve_ip + '    A    ' + blacklist_domain + '\n')
+                        else:
+                            file_output.write(resolve_ip + '    A    ' + blacklist_domain + '\n')
+                    else:
+                        file_output.write(resolve_ip + '    ' + blacklist_domain + '\n')
+
+        except Exception as e:
+            raise SystemError('Failed to write %s. Reason: %s' % (build, e))
 
 ## Download blacklist
 BLACKLIST_HOST_FOLDER = TEMP_FILE_PATH + '/blacklist/'
