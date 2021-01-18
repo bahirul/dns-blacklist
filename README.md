@@ -23,8 +23,8 @@ Python script for generating blacklist file for `pihole`, `bind`, `dnsmasq`, `sy
         - `RESOLVE_IP`            : resolve ip of blacklisted domain (for bind, dnsmasq and system hosts).
         - `ADD_WILDCARD`          : add wilcard on blaclisted domain (only for bind and dnsmasq output).
         - `AXFR_ZONES_BLACKLISTS` : set of blacklist with axfr (zone transfer dns), this may run slow on huge zone.
-        - `BLACKLIST_HOST`        : set of blacklist url (format source : hosts or list domain).
-        - `WHITELIST_HOST`        : set of whitelist url (format source : hosts or list domain).
+        - `BLACKLIST_HOST`        : set of blacklist url (format source : system hosts file or list domain).
+        - `WHITELIST_HOST`        : set of whitelist url (format source : system hosts file or list domain).
 
 ## Usage
 
