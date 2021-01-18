@@ -1,0 +1,11 @@
+cached-property==1.5.2
+certifi==2020.12.5
+chardet==4.0.0
+decorator==4.4.2
+fqdn==1.5.0
+idna==2.10
+requests==2.25.1
+six==1.15.0
+tqdm==4.56.0
+urllib3==1.26.2
+validators==0.18.2
