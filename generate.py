@@ -107,9 +107,9 @@ def buildBlacklist(whitelist, resolve_ip):
                     elif 'bind' in build:
                         if not bindWrite:
                             bindWrite = True
-                            file_output.write(bind_template + blacklist_domain + '    A    ' + resolve_ip + '\n')
+                            file_output.write(bind_template + blacklist_domain + '    IN    A    ' + resolve_ip + '\n')
                         else:
-                            file_output.write(blacklist_domain + '    A    ' + resolve_ip + '\n')
+                            file_output.write(blacklist_domain + '    IN    A    ' + resolve_ip + '\n')
                     else:
                         file_output.write(resolve_ip + '    ' + blacklist_domain + '\n')
 
