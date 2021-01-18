@@ -108,7 +108,7 @@ def buildBlacklist(whitelist, resolve_ip):
                 for output_axfr in response_axfr.answer:
                     split_output_axfr = str(output_axfr).split()
                     if split_output_axfr[0] not in whitelist and validators.domain(split_output_axfr[0]) and '_' not in split_output_axfr[0]:
-                        print('adding ' + domain + ' to blacklist ...')
+                        print('adding ' + split_output_axfr[0] + ' to blacklist ...')
                         blacklist_data.append(split_output_axfr[0])
                         
     
