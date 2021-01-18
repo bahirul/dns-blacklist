@@ -1,6 +1,6 @@
 # DNS Blacklist
 
-Python script for generating blacklist file for `pihole`, `bind`, `system hosts`.
+Python script for generating blacklist file for `pihole`, `bind`, `dnsmasq`, `system hosts`.
 
 [![dns-blacklist](https://asciinema.org/a/385212.svg)](https://asciinema.org/a/385212)
 
@@ -20,8 +20,8 @@ Python script for generating blacklist file for `pihole`, `bind`, `system hosts`
 - setup `config/app.py`
     - copy `config/app.py.example` to `config/app.py`
     - `app.py` parameters :
-        - `RESOLVE_IP`            : resolve ip of blacklisted domain (for bind and system hosts).
-        - `ADD_WILDCARD_BIND`     : add wilcard on blaclisted domain (only for bind output).
+        - `RESOLVE_IP`            : resolve ip of blacklisted domain (for bind, dnsmasq and system hosts).
+        - `ADD_WILDCARD`          : add wilcard on blaclisted domain (only for bind and dnsmasq output).
         - `AXFR_ZONES_BLACKLISTS` : set of blacklist with axfr (zone transfer dns), this may run slow on huge zone.
         - `BLACKLIST_HOST`        : set of blacklist url (format source : hosts or list domain).
         - `WHITELIST_HOST`        : set of whitelist url (format source : hosts or list domain).

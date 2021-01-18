@@ -1,8 +1,8 @@
 # resolve ip or pointing ip (used for bind and system host)
 RESOLVE_IP = '127.0.0.1'
 
-# add wilcard to generate bind zone
-ADD_WILDCARD_BIND = False
+# add wilcard to generated domain (only for bind and dnsmasq)
+ADD_WILDCARD = False
 
 # blacklist using axfr to targeted server
 AXFR_ZONES_BLACKLISTS = [

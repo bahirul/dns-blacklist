@@ -73,6 +73,7 @@ def buildBlacklist(whitelist, resolve_ip):
         os.path.join(sys.path[0],'build/hosts/') + str(time.strftime('%d-%m-%y-')) + str(int(time.time())) + '.txt',
         os.path.join(sys.path[0],'build/pihole/') + str(time.strftime('%d-%m-%y-')) + str(int(time.time())) + '.txt',
         os.path.join(sys.path[0],'build/bind/') + str(time.strftime('%d-%m-%y-')) + str(int(time.time())) + '.txt',
+        os.path.join(sys.path[0],'build/dnsmasq/') + str(time.strftime('%d-%m-%y-')) + str(int(time.time())) + '.txt'
     ]
     print('BUILD blacklist data ....')
 
@@ -129,8 +130,12 @@ def buildBlacklist(whitelist, resolve_ip):
                             file_output.write(bind_template + blacklist_domain + '    IN    A    ' + resolve_ip + '\n')
                         else:
                             file_output.write(blacklist_domain + '    IN    A    ' + resolve_ip + '\n')
-                        if ADD_WILDCARD_BIND:
+                        if ADD_WILDCARD:
                                 file_output.write('*.' + blacklist_domain + '    IN    A    ' + resolve_ip + '\n')
+                    elif 'dnsmasq' in build:
+                        file_output.write('address=/' + blacklist_domain + '/' + resolve_ip + '\n')
+                        if ADD_WILDCARD:
+                                file_output.write('address=/.' + blacklist_domain + '/' + resolve_ip + '\n')
                     else:
                         file_output.write(resolve_ip + '    ' + blacklist_domain + '\n')
 
