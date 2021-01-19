@@ -1,4 +1,4 @@
-# resolve ip or pointing ip (used for bind, dnsmasq and system hosts)
+# resolve or pointing ip (used for bind, dnsmasq and system hosts)
 RESOLVE_IP = '127.0.0.1'
 
 # add wilcard to generated domain (only for bind and dnsmasq)
