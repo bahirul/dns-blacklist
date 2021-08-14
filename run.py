@@ -75,7 +75,7 @@ def build_blacklist(whitelist, resolve_ip):
     build_paths = [
         os.path.join(os.path.dirname(__file__),"build/hosts/") + str(time.strftime("%d-%m-%y-")) + str(int(time.time())) + ".txt",
         os.path.join(os.path.dirname(__file__),"build/pihole/") + str(time.strftime("%d-%m-%y-")) + str(int(time.time())) + ".txt",
-        os.path.join(os.path.dirname(__file__),"build/bind/") + str(time.strftime("%d-%m-%y-")) + str(int(time.time())) + ".zone",
+        os.path.join(os.path.dirname(__file__),"build/bind/") + str(time.strftime("%d-%m-%y-")) + str(int(time.time())) + ".rpz",
         os.path.join(os.path.dirname(__file__),"build/dnsmasq/") + str(time.strftime("%d-%m-%y-")) + str(int(time.time())) + ".txt",
         os.path.join(os.path.dirname(__file__),"build/pdns/") + str(time.strftime("%d-%m-%y-")) + str(int(time.time())) + ".rpz",
         os.path.join(os.path.dirname(__file__),"build/mikrotik/") + str(time.strftime("%d-%m-%y-")) + str(int(time.time())) + ".rsc"
