@@ -28,7 +28,7 @@ def cleanPaths(paths):
                 elif os.path.isdir(full_path):
                     shutil.rmtree(full_path)
             except Exception as e:
-                raise SystemError('failed to delete %s. reason: %s' % (full_path, e))
+                raise SystemError('Failed to delete %s. Reason: %s' % (full_path, e))
 
 ## FLUSH
 print('clean build dir ...')
