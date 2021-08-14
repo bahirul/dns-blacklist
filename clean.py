@@ -7,6 +7,7 @@ build_paths = [
     os.path.join(sys.path[0], 'build/hosts/'),
     os.path.join(sys.path[0], 'build/pihole/'),
     os.path.join(sys.path[0], 'build/dnsmasq/'),
+    os.path.join(sys.path[0], 'build/pdns/'),
 ]
 
 tmp_paths = [

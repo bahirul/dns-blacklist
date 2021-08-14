@@ -70,12 +70,14 @@ def build_blacklist(whitelist, resolve_ip):
     blacklist_listdir = os.listdir(blacklist_tmp_path)
 
     bind_template = open(os.path.join(os.path.dirname(__file__),"template/bind.rpz.local"),"r").read()
+    pdns_template = open(os.path.join(os.path.dirname(__file__),"template/pdns.rpz.local"),"r").read()
 
     build_paths = [
         os.path.join(os.path.dirname(__file__),"build/hosts/") + str(time.strftime("%d-%m-%y-")) + str(int(time.time())) + ".txt",
         os.path.join(os.path.dirname(__file__),"build/pihole/") + str(time.strftime("%d-%m-%y-")) + str(int(time.time())) + ".txt",
         os.path.join(os.path.dirname(__file__),"build/bind/") + str(time.strftime("%d-%m-%y-")) + str(int(time.time())) + ".txt",
-        os.path.join(os.path.dirname(__file__),"build/dnsmasq/") + str(time.strftime("%d-%m-%y-")) + str(int(time.time())) + ".txt"
+        os.path.join(os.path.dirname(__file__),"build/dnsmasq/") + str(time.strftime("%d-%m-%y-")) + str(int(time.time())) + ".txt",
+        os.path.join(os.path.dirname(__file__),"build/pdns/") + str(time.strftime("%d-%m-%y-")) + str(int(time.time())) + ".txt"
     ]
 
     print("BUILD blacklist data ....")
@@ -123,6 +125,7 @@ def build_blacklist(whitelist, resolve_ip):
             with open(build, "a") as file_output:
 
                 bindWrite = False
+                pdnsWrite = False
 
                 for blacklist_domain in set(blacklist_data):
                     if "pihole" in build:
@@ -131,6 +134,14 @@ def build_blacklist(whitelist, resolve_ip):
                         if not bindWrite:
                             bindWrite = True
                             file_output.write(bind_template + blacklist_domain + "    IN    A    " + resolve_ip + "\n")
+                        else:
+                            file_output.write(blacklist_domain + "    IN    A    " + resolve_ip + "\n")
+                        if config["wildcard"]:
+                                file_output.write("*." + blacklist_domain + "    IN    A    " + resolve_ip + "\n")
+                    elif "pdns" in build:
+                        if not pdnsWrite:
+                            pdnsWrite = True
+                            file_output.write(pdns_template + blacklist_domain + "    IN    A    " + resolve_ip + "\n")
                         else:
                             file_output.write(blacklist_domain + "    IN    A    " + resolve_ip + "\n")
                         if config["wildcard"]:
