@@ -8,6 +8,7 @@ build_paths = [
     os.path.join(sys.path[0], 'build/pihole/'),
     os.path.join(sys.path[0], 'build/dnsmasq/'),
     os.path.join(sys.path[0], 'build/pdns/'),
+    os.path.join(sys.path[0], 'build/mikrotik/'),
 ]
 
 tmp_paths = [

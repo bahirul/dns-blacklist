@@ -1,6 +1,6 @@
 # DNS Blacklist
 
-Python script for generate blacklist or rpz file: pihole, bind, dnsmasq, powerdns and system hosts.: `pihole`, `bind`, `dnsmasq`, `powerdns` and `system hosts`.
+Python script for generate blacklist or rpz file: `pihole`, `bind`, `dnsmasq`, `mikrotik`, `powerdns` and `system hosts`.
 
 ## Setup
 
