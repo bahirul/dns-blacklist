@@ -2,7 +2,7 @@
 
 Python script for generate blacklist or rpz file: `pihole`, `bind`, `dnsmasq`, `mikrotik`, `powerdns` and `system hosts`.
 
-[![asciicast](https://asciinema.org/a/slilmGNwL7YokxstwuwlmgSJM.svg)](https://asciinema.org/a/slilmGNwL7YokxstwuwlmgSJM)
+[![asciicast](https://asciinema.org/a/GOv6Q5HudQQ4lPKpd08JHWw5N.svg)](https://asciinema.org/a/GOv6Q5HudQQ4lPKpd08JHWw5N)
 
 ## Setup
 
