@@ -31,7 +31,7 @@ def cleanPaths(paths):
                 raise SystemError('Failed to delete %s. Reason: %s' % (full_path, e))
 
 ## FLUSH
-print('clean build dir ...')
+print('CLEANUP build dir ...')
 cleanPaths(paths=build_paths)
-print('clean tmp dir ...')
+print('CLEANUP tmp dir ...')
 cleanPaths(paths=tmp_paths)

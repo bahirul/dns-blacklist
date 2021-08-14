@@ -11,8 +11,16 @@ whitelist: []
 ## remove example comment if using axfr zone blacklist
 axfr_zones_blacklist: [
   #{
-  #  name: "ADS",
-  #  zone: "adszone",
+  #  name: "BLACKLIST-ZONE-TRF",
+  #  zone: "blacklistzone",
   #  server: "10.0.0.1"
+  #}
+]
+## remove example comment if using axfr zone whitelist
+axfr_zones_whitelist: [
+  #{
+  #  name: "WHITELIST-ZONE-TRF",
+  #  zone: "whitelistzone",
+  #  server: "10.0.0.2"
   #}
 ]
