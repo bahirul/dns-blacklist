@@ -23,6 +23,7 @@ Python script for generate blacklist or rpz file: `pihole`, `bind`, `dnsmasq`, `
 
 - generate blacklist
     - run `python3 run.py`
+    - check generated files on `build` folder for each format
 
 - clean generated tmp and build file
     - run `python3 clean.py`
