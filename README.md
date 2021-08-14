@@ -1,8 +1,19 @@
 # DNS Blacklist
 
-Python script for generate blacklist or rpz file: `pihole`, `bind`, `dnsmasq`, `mikrotik`, `powerdns` and `system hosts`.
+Python script for generate blacklist or rpz file: `pi-hole`, `bind`, `dnsmasq`, `mikrotik`, `powerdns` and `system hosts`.
 
 [![asciicast](https://asciinema.org/a/GOv6Q5HudQQ4lPKpd08JHWw5N.svg)](https://asciinema.org/a/GOv6Q5HudQQ4lPKpd08JHWw5N)
+
+## List of formatted DNS Support
+- System Hosts file
+- Mikrotik DNS static
+- [pi-hole](https://github.com/pi-hole/pi-hole)
+- [bind](https://github.com/isc-projects/bind9)
+- [dnsmasq](https://github.com/imp/dnsmasq)
+- [powerdns](https://github.com/PowerDNS/pdns)
+- [Technitium DNS Server](https://github.com/TechnitiumSoftware/DnsServer) using System Hosts file
+- [Knot Resolver](https://github.com/CZ-NIC/knot-resolver) using bind rpz format
+- [CoreDNS](https://github.com/coredns/coredns) using System Hosts file
 
 ## Setup
 
