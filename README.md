@@ -6,34 +6,25 @@ Python script for generating blacklist file: `pihole`, `bind`, `dnsmasq`, `syste
 
 ## Setup
 
-- setup python3 virtualenv 
-    - run `virtualenv -p python3 venv`
-
-- activate virtualenv python3
-
-    - run `source ./venv/bin/activate`
+- minimum python version : 3.6.9
 
 - required modules install
 
     - run `pip3 install -r requirements.txt`
 
-- setup `config/app.py`
-    - copy `config/app.py.example` to `config/app.py`
+- setup `config/app.yaml`
+    - copy `config/app.yaml.example` to `config/app.yaml`
     - `app.py` parameters :
-        - `RESOLVE_IP`            : resolve or pointing ip of blacklisted domain (for bind, dnsmasq and system hosts).
-        - `ADD_WILDCARD`          : add wilcard on blacklisted domain (only for bind and dnsmasq).
-        - `AXFR_ZONES_BLACKLISTS` : set of blacklist with axfr (zone transfer dns), this may run slow on huge zone.
-        - `BLACKLIST_HOST`        : set of blacklist url (format source : system hosts file or list domain).
-        - `WHITELIST_HOST`        : set of whitelist url (format source : system hosts file or list domain).
+        - `resolve_ip`            : resolve or pointing ip of blacklisted domain (for bind, dnsmasq and system hosts).
+        - `wilcard`          : add wilcard on blacklisted domain (only for bind and dnsmasq).
+        - `axfr_zones_blacklist` : set of blacklist with axfr (zone transfer dns), this may run slow on huge zone.
+        - `blacklist`        : set of blacklist url (format source : system hosts file or list domain).
+        - `whitelist`        : set of whitelist url (format source : system hosts file or list domain).
 
 ## Usage
 
-- activate virtualenv python3
-
-    - run `source ./venv/bin/activate`
-
 - generate blacklist
-    - run `python3 generate.py`
+    - run `python3 run.py`
 
 - clean generated tmp and build file
-    - run `python3 flush_all.py`
+    - run `python3 clean.py`

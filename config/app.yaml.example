@@ -1,0 +1,18 @@
+# recolve ip of generated blacklist domain
+resolve_ip: '127.0.0.1'
+# use wilcard * for blacklist
+wildcard: False
+# blacklist url
+blacklist: [
+  'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts',
+]
+# whitelist url
+whitelist: []
+## remove example comment if using axfr zone blacklist
+axfr_zones_blacklist: [
+  #{
+  #  name: "TEST",
+  #  zone: "trustpositif",
+  #  server: "'10.0.0.1"
+  #}
+]
