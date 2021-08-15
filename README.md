@@ -1,6 +1,6 @@
 # DNS Blacklist
 
-Python script for generate blacklist or rpz file: `pi-hole`, `bind`, `dnsmasq`, `mikrotik`, `powerdns` and `system hosts`.
+Python script for generate blacklist or rpz file: pi-hole, bind, dnsmasq, mikrotik, powerdns and system hosts.
 
 [![asciicast](https://asciinema.org/a/GOv6Q5HudQQ4lPKpd08JHWw5N.svg)](https://asciinema.org/a/GOv6Q5HudQQ4lPKpd08JHWw5N)
 
@@ -19,13 +19,13 @@ Python script for generate blacklist or rpz file: `pi-hole`, `bind`, `dnsmasq`, 
 
 - minimum python version : 3.6.9
 
-- required modules install
+- install required modules
 
     - run `pip3 install -r requirements.txt`
 
 - setup `config/app.yaml`
     - copy `config/app.yaml.example` to `config/app.yaml`
-    - `app.py` parameters :
+    - `app.yaml` parameters :
         - `resolve_ip`            : resolve ip of blacklisted domain (bind, dnsmasq, mikrotik, powerdns and system hosts).
         - `wildcard`          : add wildcard on blacklisted domain (only for bind, dnsmasq and powerdns).
         - `blacklist`        : set of blacklist url (format source : system hosts file or list domain).
