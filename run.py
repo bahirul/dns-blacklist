@@ -208,7 +208,7 @@ build_blacklist(whitelist=get_whitelist(), resolve_ip=config["resolve_ip"])
 ## print nl
 print('\n')
 
-## flush tmp file
+## clean temporary files
 print('CLEANUP tmp folder ..')
 cleanup(os.path.join(os.path.dirname(__file__), "tmp", "blacklist"))
 cleanup(os.path.join(os.path.dirname(__file__), "tmp", "whitelist"))
