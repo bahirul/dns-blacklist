@@ -1,6 +1,6 @@
 # DNS Blacklist
 
-Python script for generate blacklist or rpz file: pi-hole, bind, dnsmasq, mikrotik, powerdns and system hosts.
+Python script for generate blacklist or rpz file: `pi-hole`, `bind`, `dnsmasq`, `mikrotik`, `powerdns` and `system hosts`.
 
 [![asciicast](https://asciinema.org/a/GOv6Q5HudQQ4lPKpd08JHWw5N.svg)](https://asciinema.org/a/GOv6Q5HudQQ4lPKpd08JHWw5N)
 
