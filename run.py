@@ -1,4 +1,3 @@
-from posixpath import split
 import tqdm
 import os
 import requests
