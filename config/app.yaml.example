@@ -1,4 +1,4 @@
-# recolve ip of generated blacklist domain
+# resolve ip of generated blacklist domain
 resolve_ip: '127.0.0.1'
 # use wilcard * for blacklist
 wildcard: False
