@@ -27,7 +27,7 @@ Python script for generate blacklist or rpz file: `pi-hole`, `bind`, `dnsmasq`, 
     - copy `config/app.yaml.example` to `config/app.yaml`
     - `app.py` parameters :
         - `resolve_ip`            : resolve ip of blacklisted domain (bind, dnsmasq, mikrotik, powerdns and system hosts).
-        - `wilcard`          : add wilcard on blacklisted domain (only for bind, dnsmasq and powerdns).
+        - `wildcard`          : add wildcard on blacklisted domain (only for bind, dnsmasq and powerdns).
         - `blacklist`        : set of blacklist url (format source : system hosts file or list domain).
         - `whitelist`        : set of whitelist url (format source : system hosts file or list domain).
         - `axfr_zones_blacklist` : set of blacklist with axfr (zone transfer dns), this may take some time on huge zone.
