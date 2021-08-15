@@ -165,11 +165,11 @@ def build_blacklist(whitelist, resolve_ip):
                     elif "pdns" in build:
                         if not pdnsWrite:
                             pdnsWrite = True
-                            file_output.write(pdns_template + blacklist_domain + "    IN    A    " + resolve_ip + "\n")
+                            file_output.write(pdns_template + blacklist_domain + "    A " + resolve_ip + "\n")
                         else:
-                            file_output.write(blacklist_domain + "    IN    A    " + resolve_ip + "\n")
+                            file_output.write(blacklist_domain + "    A " + resolve_ip + "\n")
                         if config["wildcard"]:
-                                file_output.write("*." + blacklist_domain + "    IN    A    " + resolve_ip + "\n")
+                                file_output.write("*." + blacklist_domain + "    A " + resolve_ip + "\n")
                     elif "dnsmasq" in build:
                         file_output.write("address=/" + blacklist_domain + "/" + resolve_ip + "\n")
                         if config["wildcard"]:
