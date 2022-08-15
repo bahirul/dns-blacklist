@@ -2,6 +2,8 @@
 resolve_ip: '127.0.0.1'
 # use wilcard * for blacklist
 wildcard: False
+# add www for blacklist domain (sub domain skipped)
+www: True
 # blacklist url
 blacklist: [
   'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts',

@@ -154,30 +154,63 @@ def build_blacklist(whitelist, resolve_ip):
                 for blacklist_domain in set(blacklist_data):
                     if "pihole" in build:
                         file_output.write(blacklist_domain + "\n")
+
+                        if blacklist_domain.count('.') == 1:
+                            if config['www']:
+                                file_output.write("www." + blacklist_domain + "\n") 
                     elif "bind" in build:
                         if not bindWrite:
                             bindWrite = True
                             file_output.write(bind_template + blacklist_domain + "    IN    A    " + resolve_ip + "\n")
+
+                            if blacklist_domain.count('.') == 1:
+                                if config['www']:
+                                    file_output.write( "www." + blacklist_domain + "    IN    A    " + resolve_ip + "\n")
                         else:
                             file_output.write(blacklist_domain + "    IN    A    " + resolve_ip + "\n")
+
+                            if blacklist_domain.count('.') == 1:
+                                if config['www']:
+                                    file_output.write( "www." + blacklist_domain + "    IN    A    " + resolve_ip + "\n")
                         if config["wildcard"]:
                                 file_output.write("*." + blacklist_domain + "    IN    A    " + resolve_ip + "\n")
                     elif "pdns" in build:
                         if not pdnsWrite:
                             pdnsWrite = True
                             file_output.write(pdns_template + blacklist_domain + "    A " + resolve_ip + "\n")
+
+                            if blacklist_domain.count('.') == 1:
+                                if config['www']:
+                                    file_output.write("www." + pdns_template + blacklist_domain + "    A " + resolve_ip + "\n")
                         else:
                             file_output.write(blacklist_domain + "    A " + resolve_ip + "\n")
+
+                            if blacklist_domain.count('.') == 1:
+                                if config['www']:
+                                    file_output.write("www." + pdns_template + blacklist_domain + "    A " + resolve_ip + "\n")
                         if config["wildcard"]:
                                 file_output.write("*." + blacklist_domain + "    A " + resolve_ip + "\n")
                     elif "dnsmasq" in build:
                         file_output.write("address=/" + blacklist_domain + "/" + resolve_ip + "\n")
+
+                        if blacklist_domain.count('.') == 1:
+                            if config['www']:
+                                file_output.write("address=/www." + blacklist_domain + "/" + resolve_ip + "\n")
+                        
                         if config["wildcard"]:
                                 file_output.write("address=/." + blacklist_domain + "/" + resolve_ip + "\n")
                     elif "mikrotik" in build:
                         file_output.write("/ip dns static add name=\""+blacklist_domain+"\" address=\""+resolve_ip+"\"" + "\n")
+
+                        if blacklist_domain.count('.') == 1:
+                            if config['www']:
+                                file_output.write("/ip dns static add name=\"www."+blacklist_domain+"\" address=\""+resolve_ip+"\"" + "\n")
                     else:
                         file_output.write(resolve_ip + "    " + blacklist_domain + "\n")
+
+                        if blacklist_domain.count('.') == 1:
+                            if config['www']:
+                                file_output.write(resolve_ip + "    " + "wwww." + blacklist_domain + "\n")
 
         except Exception as e:
             raise SystemError("Failed to write %s. Reason: %s" % (build, e))
